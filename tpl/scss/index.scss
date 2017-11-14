@@ -1,5 +1,14 @@
 $black:#000000;
 
 body{
-  background-color:white;
+  background-color:$black;
+}
+
+h1{
+  color: #FFF;
+}
+h1:hover{
+  -webkit-transition: color 1s ease;
+  transition: color 1s ease;
+  
 }

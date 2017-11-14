@@ -1,10 +1,12 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
 var SOURCEPATH = {
-  sassSource : 'tpl/scss/*.scss'
+  sassSource : 'tpl/scss/*.scss',
+  htmlSource : 'tpl/*.html'
 }
 var APPPATH = {
   root : 'app/',
@@ -13,8 +15,14 @@ var APPPATH = {
 }
 gulp.task('sass', function(){
   return gulp.src(SOURCEPATH.sassSource)
-    .pipe(sass({oupPutStyle:'expanded'}).on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(sass({oupPutStyle:'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest(APPPATH.css));
+});
+
+gulp.task('copy', function(){
+  gulp.src(SOURCEPATH.htmlSource)
+    .pipe(gulp.dest(APPPATH.root));
 });
 
 gulp.task('serve',['sass'], function(){
@@ -25,8 +33,10 @@ gulp.task('serve',['sass'], function(){
   });
 });
 
-gulp.task('watch', ['serve', 'sass'], function() {
+gulp.task('watch', ['serve', 'sass', 'copy'], function() {
   gulp.watch([SOURCEPATH.sassSource],['sass']);
+  gulp.watch([SOURCEPATH.htmlSource],['copy']);
+
 })
 
 gulp.task('default', ['watch']);

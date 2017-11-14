@@ -1,2 +1,9 @@
 body {
-  background-color: white; }
+  background-color: #000000; }
+
+h1 {
+  color: #FFF; }
+
+h1:hover {
+  -webkit-transition: color 1s ease;
+  transition: color 1s ease; }
