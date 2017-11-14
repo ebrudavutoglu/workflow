@@ -1,5 +1,5 @@
 {
-  "name": "gulp",
+  "name": "dvtgl",
   "version": "1.0.0",
   "description": "NPM, Gulp, Sass",
   "main": "index.js",
@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/ebrudavutoglu/workflow/issues"
   },
-  "homepage": "https://github.com/ebrudavutoglu/workflow#readme"
+  "homepage": "https://github.com/ebrudavutoglu/workflow#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
 }
