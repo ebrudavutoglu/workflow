@@ -1,10 +1,32 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
+var SOURCEPATH = {
+  sassSource : 'tpl/scss/*.scss'
+}
+var APPPATH = {
+  root : 'app/',
+  css : 'app/css',
+  js : 'app/js'
+}
 gulp.task('sass', function(){
-  return gulp.src('tpl/scss/index.scss')
+  return gulp.src(SOURCEPATH.sassSource)
     .pipe(sass({oupPutStyle:'expanded'}).on('error', sass.logError))
-    .pipe(gulp.dest('app/css'));
+    .pipe(gulp.dest(APPPATH.css));
 });
 
-gulp.task('defaut', ['sass']);
+gulp.task('serve',['sass'], function(){
+  browserSync.init([APPPATH.css + '/*.css', APPPATH.root + '*.html', APPPATH.js + '*.js'],{
+    server:{
+      baseDir : APPPATH.root
+    }
+  });
+});
+
+gulp.task('watch', ['serve', 'sass'], function() {
+  gulp.watch([SOURCEPATH.sassSource],['sass']);
+})
+
+gulp.task('default', ['watch']);
