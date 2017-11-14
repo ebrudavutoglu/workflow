@@ -1,0 +1,25 @@
+{
+  "name": "gulp",
+  "version": "1.0.0",
+  "description": "NPM, Gulp, Sass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebrudavutoglu/workflow.git"
+  },
+  "keywords": [
+    "Gulp",
+    "Sass",
+    "NPM",
+    "Git"
+  ],
+  "author": "Ebru Davutoglu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebrudavutoglu/workflow/issues"
+  },
+  "homepage": "https://github.com/ebrudavutoglu/workflow#readme"
+}
