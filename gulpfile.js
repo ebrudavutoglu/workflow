@@ -2,6 +2,7 @@ var gulp          = require('gulp');
 var sass          = require('gulp-sass');
 var autoprefixer  = require('gulp-autoprefixer');
 var clean         = require('gulp-clean');
+var concat        = require('gulp-concat');
 var browserSync   = require('browser-sync');
 var reload        = browserSync.reload;
 
@@ -33,6 +34,7 @@ gulp.task('sass', function(){
 
 gulp.task('script',['clean-js'], function(){
   gulp.src(SOURCEPATH.jsSource)
+    .pipe(concat('main.js'));
     .pipe(gulp.dest(APPPATH.js));
 });
 
