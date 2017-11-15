@@ -3,6 +3,8 @@ var sass          = require('gulp-sass');
 var autoprefixer  = require('gulp-autoprefixer');
 var clean         = require('gulp-clean');
 var concat        = require('gulp-concat');
+var browserify    = require('gulp-browserify');
+var merge         = require('merge-stream');
 var browserSync   = require('browser-sync');
 var reload        = browserSync.reload;
 
@@ -26,15 +28,21 @@ gulp.task('clean-js', function(){
     .pipe(clean());
 });
 gulp.task('sass', function(){
-  return gulp.src(SOURCEPATH.sassSource)
+  var bootstrapCSS = gulp.src('./node_modules/bootstrap/dist/css/bootstrap.css')
+  var sassFiles;
+
+  sassFiles = gulp.src(SOURCEPATH.sassSource)
     .pipe(autoprefixer())
     .pipe(sass({oupPutStyle:'compressed'}).on('error', sass.logError))
+  return merge(bootstrapCSS, sassFiles)
+    .pipe(concat('app.css'))
     .pipe(gulp.dest(APPPATH.css));
 });
 
 gulp.task('script',['clean-js'], function(){
   gulp.src(SOURCEPATH.jsSource)
-    .pipe(concat('main.js'));
+    .pipe(concat('main.js'))
+    .pipe(browserify())
     .pipe(gulp.dest(APPPATH.js));
 });
 
