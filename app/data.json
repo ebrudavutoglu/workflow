@@ -1,0 +1,31 @@
+{
+	"gallery": [
+    {"destiny":"London Eye",
+     "image": "1.jpg"
+    },
+    {"destiny":"Tower Bridge",
+     "image": "1.jpg"
+    },
+    {"destiny":"Westminster Abbey",
+     "image": "1.jpg"
+    },
+    {"destiny":"St. Paul Cathedral",
+     "image": "1.jpg"
+    },
+    {"destiny":"Buckingham Palace",
+     "image": "1.jpg"
+	  },
+    {"destiny":"Natural History Museum",
+     "image": "1.jpg"
+    },
+    {"destiny":"Big Ben",
+     "image": "1.jpg"
+    },
+    {"destiny":"Westminster Palace",
+     "image": "1.jpg"
+    },
+    {"destiny":"Hyde Park",
+     "image": "1.jpg"
+    }
+]
+}
